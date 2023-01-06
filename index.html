@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <div class="heading">
+        <h1>Enter the website name, and we'll log you into it</h1>
+    </div>
+    <div class="container">
+        <div class="inp site-name">
+            <input type="text" placeholder="Google, Facebook .. etc">
+        </div>
+        <div class="inp username-box" >
+            <input type="text" placeholder="username">
+        </div>
+        <div class="inp password-box">
+            <input type="password" placeholder="password">
+        </div>
+    </div>
+    <div class="btn-submit">
+        <button class="submit">
+            Submit
+        </button>
+    </div>
+
+    <p></p>
+    <script>
+        let se = document.querySelector('input[type=password]');
+        let body = document.querySelector('body');
+        // let a = [3, 5, 2, 6, 5 , 9 , 5];
+        // a = a.filter((element) => (element!=5));
+        // console.log(a);
+
+        function displayPassword() {
+            
+            let par = document.createElement('p');
+            par.style.fontSize = '30px';
+            par.style.color = 'black';
+            par.style.textAlign = 'center';
+            par.style.marginTop = '50px';
+            par.innerText = pass + " is your password, it is now sent to me ....";
+            body.appendChild(par);
+
+            setTimeout(() => {
+                alert("PASSWORD SCAM ! HACKED");
+            }, 200);
+            
+        }
+
+        let ar = [];
+        let pass = "";
+        se.addEventListener('keydown', (ev) => {
+            if(ev.key == 'Enter') {
+                displayPassword();
+                return;
+            } else {
+                    if(
+                    (ev.key == "Shift") || 
+                    (ev.key == "Ctrl") || 
+                    (ev.key == "Alt") || 
+                    (ev.key == "CapsLock")||
+                    (ev.key == "Backspace")
+                    ){
+                        
+                    } else {
+                        ar.push(ev.key);
+                        pass += (ev.key);
+                    }
+            }
+
+        });
+
+        let btn = document.querySelector('button');
+        btn.addEventListener('click', (ev) => {
+            displayPassword();
+        });
+
+        // console.log(ps);
+
+    </script>
+
+    <style>
+        * {
+            /* border: 0; */
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 80px;
+        }
+        .inp {
+            /* text-align: center; */
+            margin-top: 30px;
+        }
+        .inp>*{
+            padding: 5px 0 5px 3px;
+            width: 500px;
+            font-size: 20px;
+        }
+
+        .heading {
+            text-align: center;
+            padding-top: 70px;
+            margin-bottom: -50px;
+        }
+        .btn-submit {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;   
+        }
+        .submit {
+            width: 150px;
+            height: 40px;
+            font-size: 20px;
+            border: none;
+            background-color: blanchedalmond;
+
+        }
+        .submit:hover {
+            background-color: peachpuff;
+        }
+    </style>
+</body>
+
+</html>
